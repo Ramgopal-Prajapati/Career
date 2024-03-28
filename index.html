@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future With Ramgopal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            border: 5px solid green;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s  infinite  ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                
+                border-top:5px solid #50f137;
+                border-left: 5px solid #d7cd11;
+                border-bottom:5px solid #333;
+                border-right:5px solid #ea7676;
+            }
+            to {
+               
+                border-top:5px solid #a2ef96;
+                border-left:5px solid #1b5ee4;
+                border-bottom:5px solid #f01515;
+                border-right: 5px solid #14a9c7;
+            }
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        p {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        label {
+            font-weight: bold;
+        }
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #21b83fa4;
+            color: #100e0e;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto 0;
+            animation: breathing 2s infinite ease-in-out;
+        }
+        
+        @keyframes breathing {
+            0% { transform: scale(1); 
+                background-color: #53e818;}
+            50% { transform: scale(1);
+                background-color: #3deab9; }
+            100% { transform: scale(1);
+                background-color: #d7cd11; }
+        }
+        
+        button:hover {
+            background-color: #50f137;
+        }
+        @keyframes fadeInBtn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        #options {
+            animation: fadeInOptions 0.5s ease-in-out;
+        }
+        @keyframes fadeInOptions {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Future Options</h1>
+        <p>Some students are confused about their future options. They don't have an idea about their career, which field is better, future scope, and many more.</p>
+        <h2>Don't Worry, I Will Help You!</h2>
+        <h3>Enter Your Basic Information and Get the Best option for your career!</h3><hr><hr><br><br>
+        <label for="qualification">Qualifications:</label>
+        <select id="qualification">
+            <option>Select Higher Qualification</option>
+            <option value="10th pass">8th pass</option>
+            <option value="10th pass">10th pass</option>
+            <option value="12th pass">12th pass</option>
+            <option value="Diploma">Diploma</option>
+            <option value="Graduation">Graduation</option>
+            <option value="Engineering">Engineering</option>
+
+            <option value="ITI">ITI</option>
+
+            <!-- Add more options as needed -->
+        </select>
+        <label for="interest">Interests:</label>
+        <select id="interest">
+            <option>Select Interest</option>
+            <option value="Programming">Programming</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Medicine">Medicine</option>
+            <option value="Art">Art</option>
+            <option value="Cloud">Cloud Computing </option>
+            <option value="Web3">Web3 </option>
+            <option value="Blockchain">Art</option>
+            <option value="Art">Blockchain</option>
+            <option value="WebDevelopment">Web Development</option>
+            <option value="AppDevelopment">App Development</option>
+            <option value="Government">Government Sector</option>
+            <option value="UPSC">UPSC</option>
+            <option value="Ssc">Ssc</option>
+            <option value="Banking">Banking</option>
+            <option value="Doctor">Doctor</option>
+            <option value="Law">Law</option>
+            <option value="History">History</option>
+            <option value="Gate">Gate</option>
+            <option value="Phd">PhD</option>
+            <option value="ITI">ITI</option>
+
+
+            <!-- Add more options as needed -->
+        </select>
+        <button class="bt1" onclick="suggestOptions()">Get Future Options</button><br><br>
+        <button  class="bt2"  onclick="suggestOptions()">Chat With Us</button><br>
+        <a href="developer.html">
+        <button  class="bt3"  onclick="suggestOptions()">Appintment with Us
+        </button><br>
+        </a>
+
+
+        <div id="options"></div>
+    </div>
+
+    <script>
+        function suggestOptions() {
+            var qualification = document.getElementById("qualification").value;
+            var interest = document.getElementById("interest").value;
+            var optionsDiv = document.getElementById("options");
+            optionsDiv.innerHTML = "";
+
+            // Call the appropriate function based on qualification and interest
+            if (qualification === "12th pass" && interest === "Programming") {
+                suggestProgrammingOptions12thpass();
+            } 
+            else if (qualification === "10th pass" && interest === "Programming") {
+                suggestProgrammingOptions10thpass();
+            } 
+            else if (qualification === "8th pass" && interest === "Programming") {
+                suggestProgrammingOptions8thpass();
+            } 
+            else if (qualification === "Diploma" && interest === "Programming") {
+                suggestProgrammingOptionsDiploma();
+            } 
+            else if (qualification === "ITI" && interest === "Programming") {
+                suggestProgrammingOptionsITI();
+            } 
+            else if (qualification === "Graduation" && interest === "Programming") {
+                suggestProgrammingOptionsGraduation();
+            } 
+            
+            
+            
+            else if (qualification === "12th pass" && interest === "Engineering") {
+                suggestEngineeringOptions12thpass();
+            } 
+            else if (qualification === "10th pass" && interest === "Engineering") {
+                suggestEngineeringOptions10thpass();
+            } 
+            else if (qualification === "8th pass" && interest === "Engineering") {
+                suggestEngineeringOptions8thpass();
+            } 
+            else if (qualification === "Diploma" && interest === "Engineering") {
+                suggestEngineeringOptionsDiploma();
+            } 
+            else if (qualification === "ITI" && interest === "Engineering") {
+                suggestEngineeringOptionsITI();
+            } 
+
+
+
+
+            else if (qualification === "8th pass" && interest === "UPSC") {
+                suggestUPSCOptions8thpass();
+            } 
+            else if (qualification === "10th pass" && interest === "UPSC") {
+                suggestUPSCOptions10thpass();
+            } 
+            else if (qualification === "12th pass" && interest === "UPSC") {
+                suggestUPSCOptions12thpass();
+            } 
+            else if (qualification === "Diploma" && interest === "UPSC") {
+                suggestUPSCOptionsDiploma();
+            } 
+            else if (qualification === "Graduation" && interest === "UPSC") {
+                suggestUPSCOptionsGraduation();
+            } 
+            else if (qualification === "ITI" && interest === "UPSC") {
+                suggestUPSCOptionsITI();
+            } 
+            
+            
+            
+           
+            else if (qualification === "Graduation" && interest === "Phd") {
+                suggestGradPhdOptions();
+            } 
+
+
+            else if (qualification === "10th pass" && interest === "Art") {
+                suggestGradArtOptions10thpass();
+            }
+            else if (qualification === "12th pass" && interest === "Art") {
+                suggestGradArtOptions12thpass();
+            }
+
+
+            else if (qualification === "10th pass" && interest === "ITI") {
+                suggestITIOptions10thpass();
+            }
+            else if (qualification === "8th pass" && interest === "ITI") {
+                suggestITIOptions8thpass();
+            }
+            else if (qualification === "12th pass" && interest === "ITI") {
+                suggestITIOptions12thpass();
+            }
+            else if (qualification === "Diploma" && interest === "ITI") {
+                suggestITIOptionsDiploma();
+            }
+            else if (qualification === "Graduation" && interest === "ITI") {
+                suggestITIOptionsGraduation();
+            }
+            
+            
+            
+            else if (qualification === "Graduation" && interest === "Banking") {
+                suggestGradBankingOptionsGraduation();
+            }
+            else if (qualification === "10th pass" && interest === "Banking") {
+                suggestGradBankingOptions10thpass();
+            }
+            else if (qualification === "8th pass" && interest === "Banking") {
+                suggestGradBankingOptions8thpass();
+            }
+            else if (qualification === "12th pass" && interest === "Banking") {
+                suggestGradBankingOptions12thpass();
+            }
+            else if (qualification === "Diploma" && interest === "Banking") {
+                suggestGradBankingOptionsDiploma();
+            }
+            else if (qualification === "ITI" && interest === "Banking") {
+                suggestGradBankingOptionsITI();
+            }
+            
+            
+            else if (qualification === "Graduation" && interest === "Doctor") {
+                suggestGradDoctorOptionsGraduation();
+            }
+            else if (qualification === "8th pass" && interest === "Doctor") {
+                suggestGradDoctorOptions8thpass();
+            }
+            else if (qualification === "10th pass" && interest === "Doctor") {
+                suggestGradDoctorOptions10thpass();
+            }
+            else if (qualification === "12th pass" && interest === "Doctor") {
+                suggestGradDoctorOptions12thpass();
+            }
+            else if (qualification === "Diploma" && interest === "Doctor") {
+                suggestGradDoctorOptionsDiploma();
+            }
+            else if (qualification === "ITI" && interest === "Doctor") {
+                suggestGradDoctorOptionsITI();
+            }
+
+            
+            else if (qualification === "12th pass" && interest === "Cloud") {
+                suggestCloudOptions12thpass();
+            }
+            else if (qualification === "10th pass" && interest === "Cloud") {
+                suggestCloudOptions10thpass();
+            }
+            else if (qualification === "8th pass" && interest === "Cloud") {
+                suggestCloudOptions8thpass();
+            }
+            else if (qualification === "Diploma" && interest === "Cloud") {
+                suggestCloudOptionsDiploma();
+            }
+            else if (qualification === "Graduation" && interest === "Cloud") {
+                suggestCloudOptionsGraduation();
+            }
+            else if (qualification === "ITI" && interest === "Cloud") {
+                suggestCloudOptionsITI();
+            }
+            
+
+            else if (qualification === "Graduation" && interest === "Government") {
+                suggestGovernmentOptionsGraduation();
+            }else if (qualification === "12th pass" && interest === "Government") {
+                suggestGovernmentOptions12thpass();
+            }else if (qualification === "ITI" && interest === "Government") {
+                suggestGovernmentOptionsITI();
+            }else if (qualification === "10th pass" && interest === "Government") {
+                suggestGovernmentOptions10thpass();
+            }else if (qualification === "Diploma" && interest === "Government") {
+                suggestGovernmentOptionsDiploma();
+            }else if (qualification === "8th pass" && interest === "Government") {
+                suggestGovernmentOptions8thpass();
+            }
+
+
+            else if (qualification === "Engineering" && interest === "WebDevelopment") {
+                suggestWebDevelopment();
+            }
+
+            else if (qualification === "Engineering" && interest === "AppDevelopment") {
+                suggestAppDevelopment();
+            }
+
+            else if (qualification === "Engineering" && interest === "Medicine") {
+                suggestMedicine();
+            }
+
+            else if (qualification === "Engineering" && interest === "Blockchain") {
+                suggestBlockchain();
+            }
+            else if (qualification === "Engineering" && interest === "Web3") {
+                suggestWeb3();
+            }
+
+            else if (qualification === "Engineering" && interest === "Scc") {
+                suggestScc();
+            }
+
+            else if (qualification === "Engineering" && interest === "Law") {
+                suggestLaw();
+            }
+
+            else if (qualification === "Engineering" && interest === "Gate") {
+                suggestGate();
+            }
+
+            else if (qualification === "Engineering" && interest === "History") {
+                suggestHistory();
+            }
+
+            else if (qualification === "Engineering" && interest === "Art") {
+                suggestArt();
+            }
+            else if (qualification === "Engineering" && interest === "Government") {
+                suggestArt();
+            }
+
+
+
+            
+            else {
+
+                optionsDiv.innerHTML = "Sorry, no options available for the selected qualification and interest.";
+            }
+        }
+
+        // Define different functions for different combinations of qualification and interest
+        function  suggestProgrammingOptions12thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (12th pass) and interest (Programming), some future options could be: <ul><li>BSC (Computer Science)</li><li>BSC (Information Technology)</li><li>B.Tech-Bachelor of Technology</li><li>BCA-Bachelor of Computer Application</li><li>BSC-Bachelor of Science</li><li>Technical Study</li><li>Engineering (Various Branch) </li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+
+        function  suggestProgrammingOptions10thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (12th pass) and interest (Engineering), some future options could be: <ul><li> Lots of Engineering job </li><li>Cloud Engineer</li> <li>Python Engineer </li> <li> Java Developer</li><li> Full Stack engineer </li><li> Android and IOS developer</li><li> Blockchain Developer </li><li> Web3 Developer </li><li> Cyber security  </li><li>Ethical Hacker </li><li> Network Engineer </li><li> Lots of Government Engineering job </li><li> </li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+
+        function  suggestProgrammingOptions8thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Programming), some future options could be: <ul><li>Software developer positions</li><li>Master's degree in computer science</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+
+        function  suggestProgrammingOptionsGraduation() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function  suggestProgrammingOptionsDiploma() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function  suggestProgrammingOptionsITI() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+
+
+
+
+
+
+        function  suggestEngineeringOptionsITI() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function  suggestEngineeringOptions12thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function  suggestEngineeringOptions10thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function  suggestEngineeringOptions8thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function  suggestEngineeringOptionsDiploma() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+
+
+
+
+        function   suggestUPSCOptions8thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function   suggestUPSCOptions10thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function   suggestUPSCOptions12thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function   suggestUPSCOptionsGraduation() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function   suggestUPSCOptionsDiploma() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function   suggestUPSCOptionsITI() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+
+
+
+
+        function     suggestITIOptions10thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function     suggestITIOptions12thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function     suggestITIOptions8thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function     suggestITIOptionsGraduation() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function     suggestITIOptionsDiploma() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+
+
+
+
+
+
+        function suggestGradBankingOptionsGraduation() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function suggestGradBankingOptions8thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function suggestGradBankingOptions10thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function suggestGradBankingOptions12thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function suggestGradBankingOptionsDiploma() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function suggestGradBankingOptionsITI() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+
+
+
+
+
+
+        function suggestGradDoctorOptionsGraduation() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        
+        function suggestGradDoctorOptions8thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+
+        
+        function suggestGradDoctorOptions10thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+
+        
+        function suggestGradDoctorOptions12thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+
+        
+        function suggestGradDoctorOptionsDiploma() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+
+        
+        function suggestGradDoctorOptionsITI() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+
+
+
+
+
+
+        function  suggestCloudOptions10thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function  suggestCloudOptions12thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function  suggestCloudOptions8thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function  suggestCloudOptionsGraduation() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function  suggestCloudOptionsDiploma() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function  suggestCloudOptionsITI() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+
+
+
+
+
+
+        function  suggestGovernmentOptionsITI() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function  suggestGovernmentOptionsDiploma() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function  suggestGovernmentOptionsGraduation() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function  suggestGovernmentOptions8thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function  suggestGovernmentOptions10thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function  suggestGovernmentOptions12thpass() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        suggestWebDevelopment()
+
+        function   suggestWebDevelopment() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function   suggestAppDevelopment() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function   suggestBlockchain() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function   suggestMedicine() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function   suggestHistory() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function   suggestGate() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function   suggestWeb3() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function   suggestArt() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function   suggestLaw() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+        function   suggestScc() {
+            var optionsDiv = document.getElementById("options");
+            var suggestion = "Based on your qualification (Graduation) and interest (Engineering), some future options could be: <ul><li>Engineering manager positions</li><li>PhD in engineering</li></ul>";
+            optionsDiv.innerHTML = suggestion;
+        }
+    
+    </script>
+</body>
+</html>
